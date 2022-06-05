@@ -5,7 +5,7 @@
         "iris.script": "objectscript"
       },
     "objectscript.conn" :{
-      "ns": "IRISAPP",
+      "ns": "USER",
       "username": "_SYSTEM",
       "password": "SYS",
       "docker-compose": {
@@ -16,17 +16,16 @@
       "links": {
         "Production": "http://localhost:${port}/csp/irisapp/EnsPortal.ProductionConfig.zen?PRODUCTION=dc.Demo.Production",
         "Rule": "http://localhost:${port}/csp/irisapp/EnsPortal.RuleEditor.zen?RULE=dc.Demo.FilterPostsRoutingRule"
-        
       }
     },
     "sqltools.connections": [
       {
-        "namespace": "IRISAPP",
+        "namespace": "USER",
         "connectionMethod": "Server and Port",
         "showSystem": false,
         "previewLimit": 50,
         "server": "localhost",
-        "port": 52795,
+        "port": 52773,
         "askForPassword": false,
         "driver": "InterSystems IRIS",
         "name": "IRISAPP",

@@ -1,22 +1,24 @@
-ARG IMAGE=store/intersystems/iris-community:2020.1.0.204.0
-ARG IMAGE=intersystemsdc/iris-community:2020.1.0.209.0-zpm
-ARG IMAGE=intersystemsdc/iris-community:2020.2.0.204.0-zpm
-ARG IMAGE=intersystemsdc/irishealth-community:2020.3.0.200.0-zpm
-ARG IMAGE=intersystemsdc/iris-community:2020.3.0.200.0-zpm
-ARG IMAGE=intersystemsdc/iris-community:2020.3.0.221.0-zpm
-ARG IMAGE=intersystemsdc/iris-community:2020.4.0.521.0-zpm
+ARG IMAGE=intersystemsdc/irishealth-community
 FROM $IMAGE
 
 USER root   
         
-WORKDIR /opt/irisapp
-RUN chown ${ISC_PACKAGE_MGRUSER}:${ISC_PACKAGE_IRISGROUP} /opt/irisapp
+WORKDIR /opt/user
+RUN chown ${ISC_PACKAGE_MGRUSER}:${ISC_PACKAGE_IRISGROUP} /opt/user
 USER ${ISC_PACKAGE_MGRUSER}
 
-COPY  Installer.cls .
+COPY  Installer.cls Installer.cls
+COPY  module.xml module.xml
 COPY  src src
+COPY input input
+COPY output output
 COPY iris.script /tmp/iris.script
 
+USER root
+RUN chmod 777 -R /opt/user/input
+RUN chmod 777 -R /opt/user/output
+
+USER ${ISC_PACKAGE_MGRUSER}
 RUN iris start IRIS \
 	&& iris session IRIS < /tmp/iris.script \
     && iris stop IRIS quietly

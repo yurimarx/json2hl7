@@ -1,0 +1,7 @@
+adt_08 - atualização de dados demográficos sem significado clinico - segmentos msh e pid
+mrn - id 
+mrn + facility + assign authority
+nomes - tomar cuidado no split de nomes
+ssn - cpf
+drivers license - rg
+cns - additional identifier

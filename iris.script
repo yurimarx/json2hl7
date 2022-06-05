@@ -1,11 +1,10 @@
- do $SYSTEM.OBJ.Load("/opt/irisapp/Installer.cls", "ck")
- set sc = ##class(App.Installer).setup() 
+    zn "%SYS"
+    do $SYSTEM.OBJ.Load("/opt/user/Installer.cls", "ck")
+    set sc = ##class(App.Installer).setup() 
+    Do ##class(Security.Users).UnExpireUserPasswords("*")
 
- zn "IRISAPP"
- do $System.OBJ.LoadDir("/opt/irisapp/src","ck",,1)
- zpm "install sslclient"
-
- zn "%SYS"
- Do ##class(Security.Users).UnExpireUserPasswords("*")
+    zn "USER"
+    do $System.OBJ.LoadDir("/opt/user/src","ck",,1)
+    zpm "load /opt/user/ -v"
 
 halt

@@ -1,22 +1,23 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Export generator="Cache" version="25">
-  <Document name="interoperability-sample.ZPM">
+  <Document name="json2hl7.ZPM">
     <Module>
-      <Name>interoperability-sample</Name>
-      <Description>A simple IRIS interoperability application - reads data from Reddit and filter it.</Description>
-      <Version>0.0.3</Version>
+      <Name>json2hl7</Name>
+      <Description>Convert JSON to HL7</Description>
+      <Version>1.0.0</Version>
       <Packaging>module</Packaging>
-      <Dependencies>
-        <ModuleReference>
-          <Name>sslclient</Name>
-          <Version>1.0.1</Version>
-        </ModuleReference>
-      </Dependencies>
       <SourcesRoot>src</SourcesRoot>
-      <Resource Name="Ens.Config.DefaultSettings.ESD"/>
-      <Resource Name="TestLookupTable.LUT"/>
-      <Resource Name="dc.Reddit.PKG"/>
-      <Resource Name="dc.Demo.PKG"/>
+      <Resource Name="hcd.PKG"/>
+      <CSPApplication 
+        Url="/hcd/api"
+        DispatchClass="hcd.api.HCDRESTApp"
+        MatchRoles=":{$dbrole}"
+        PasswordAuthEnabled="1"
+        UnauthenticatedEnabled="1"
+        Recurse="1"
+        UseCookies="2"
+        CookiePath="/hcd/api"
+       />
       <SystemRequirements Version=">=2020.1" Interoperability="enabled" />
     </Module>
   </Document>
