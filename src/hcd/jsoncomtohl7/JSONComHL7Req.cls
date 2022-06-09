@@ -1,6 +1,14 @@
 Class hcd.jsoncomtohl7.JSONComHL7Req Extends Ens.Request
 {
 
+// current date time
+
+Property currentDateTime As %String;
+
+// message id
+
+Property messageId As %String;
+
 // Identificador do paciente no SI3, no hospital consultado.
 
 Property idPaciente As %Integer;
@@ -16,6 +24,10 @@ Property descricaoTipoMeioComunicacao As %String;
 // Descrição do meio de comunicação. Valor do meio de comunicação.
 
 Property descricaoComunicacao As %String(MAXLEN = 200);
+
+// Descrição do meio de comunicação2. Valor do meio de comunicação.
+
+Property descricaoComunicacao2 As %String(MAXLEN = 200);
 
 // Descrição de complemento do meio de comunicação
 
@@ -39,6 +51,15 @@ Storage Default
 </Value>
 <Value name="5">
 <Value>descricaoComunicacaoComplemento</Value>
+</Value>
+<Value name="6">
+<Value>currentDateTime</Value>
+</Value>
+<Value name="7">
+<Value>messageId</Value>
+</Value>
+<Value name="8">
+<Value>descricaoComunicacao2</Value>
 </Value>
 </Data>
 <DefaultData>JSONComHL7ReqDefaultData</DefaultData>

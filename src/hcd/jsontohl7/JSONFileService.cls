@@ -17,6 +17,8 @@ Method OnProcessInput(pInput As %FileCharacterStream, pOutput As %RegisteredObje
 
     Set req = ##class(hcd.jsontohl7.JSONHL7Req).%New()
 
+    Set req.currentDateTime = $ZSTRIP($ZDATETIME($HOROLOG,8,2), "*W",":")
+    Set req.messageId = $PIECE(pInput.Attributes("Filename"),"/",*) 
     Set req.idPaciente = jsonObject."0".paciId
     Set req.matricula = jsonObject."0".matricula
     Set req.nome = $PIECE(jsonObject."0".nome," ")
@@ -24,7 +26,7 @@ Method OnProcessInput(pInput As %FileCharacterStream, pOutput As %RegisteredObje
     Set req.nomeFamilia = $PIECE(jsonObject."0".nome," ", 3)
     Set req.nomeSocial = jsonObject."0".nomeSocial
     Set req.dtNasc = $System.SQL.TODATE(jsonObject."0".dtNasc,"DD/MM/YYYY")
-    Set req.tpSexo = jsonObject."0".tpSexo
+    Set req.tpSexo = jsonObject."0".tpSexo 
     Set req.sexo = jsonObject."0".sexo
     Set req.origem = jsonObject."0".origem
     Set req.uf = jsonObject."0".uf

@@ -1,6 +1,14 @@
 Class hcd.jsontohl7.JSONHL7Req Extends Ens.Request
 {
 
+// current date time
+
+Property currentDateTime As %String;
+
+// message id
+
+Property messageId As %String;
+
 // Identificador do paciente no SI3, no hospital consultado.
 
 Property idPaciente As %Integer;
@@ -361,6 +369,12 @@ Storage Default
 </Value>
 <Value name="51">
 <Value>nomeFamilia</Value>
+</Value>
+<Value name="52">
+<Value>currentDateTime</Value>
+</Value>
+<Value name="53">
+<Value>messageId</Value>
 </Value>
 </Data>
 <DefaultData>JSONHL7ReqDefaultData</DefaultData>

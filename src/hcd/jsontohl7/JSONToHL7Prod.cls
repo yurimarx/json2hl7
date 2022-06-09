@@ -30,7 +30,32 @@ XData ProductionDefinition
   <Item Name="MsgRouterCom" Category="" ClassName="EnsLib.MsgRouter.RoutingEngine" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Host" Name="BusinessRuleName">hcd.jsoncomtohl7.JSONComToHL7Router</Setting>
   </Item>
-  
+  <Item Name="JSONDiagFileService" Category="" ClassName="hcd.jsondiagtohl7.JSONDiagFileService" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Adapter" Name="ArchivePath">/opt/user/output/diagnostico/</Setting>
+    <Setting Target="Adapter" Name="FilePath">/opt/user/input/diagnostico/</Setting>
+  </Item>
+  <Item Name="MsgRouterDiag" Category="" ClassName="EnsLib.MsgRouter.RoutingEngine" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
+    <Setting Target="Host" Name="BusinessRuleName">hcd.jsondiagtohl7.JSONDiagToHL7Router</Setting>
+  </Item>
+  <Item Name="JSONAdmFileService" Category="" ClassName="hcd.jsonadmtohl7.JSONAdmFileService" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Adapter" Name="ArchivePath">/opt/user/output/admissao/</Setting>
+    <Setting Target="Adapter" Name="FilePath">/opt/user/input/admissao/</Setting>
+  </Item>
+  <Item Name="MsgRouterAdm" Category="" ClassName="EnsLib.MsgRouter.RoutingEngine" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
+    <Setting Target="Host" Name="BusinessRuleName">hcd.jsonadmtohl7.JSONAdmToHL7Router</Setting>
+  </Item>
+  <Item Name="HL7FileDocOperation" Category="" ClassName="EnsLib.HL7.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Adapter" Name="FilePath">/opt/user/output/documento/</Setting>
+  </Item>
+  <Item Name="HL7FileComOperation" Category="" ClassName="EnsLib.HL7.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Adapter" Name="FilePath">/opt/user/output/meiocomunicacao/</Setting>
+  </Item>
+  <Item Name="HL7FileDiagOperation" Category="" ClassName="EnsLib.HL7.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Adapter" Name="FilePath">/opt/user/output/diagnostico/</Setting>
+  </Item>
+  <Item Name="HL7FileAdmOperation" Category="" ClassName="EnsLib.HL7.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Adapter" Name="FilePath">/opt/user/output/admissao/</Setting>
+  </Item>
 </Production>
 }
 

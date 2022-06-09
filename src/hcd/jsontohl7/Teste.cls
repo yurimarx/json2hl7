@@ -6,26 +6,38 @@ ClassMethod Read() As %Status
 {
     Set sc = $$$OK  
     
-    Set pInput=##class(%FileCharacterStream).%New()
-    Set pInput.Filename="/opt/irisapp/input/31395328-D538-11EC-B594-42010A991602.json"
-    Set jsonContent = ""
-
-    Set jsonContent = ""
+    Set jsonContent = [
+        {
+            "paciId": 2965065,
+            "codigo": "I10",
+            "descricao": "Hipertensao essencial (primaria)",
+            "dtInicio": "10/11/2014 08:30:00",
+            "status": "A"
+        },
+        {
+            "paciId": 2965065,
+            "codigo": "E78.0",
+            "descricao": "Hipercolesterolemia pura",
+            "dtInicio": "11/03/2016 17:50:00",
+            "status": "A"
+        }
+    ]
      
-    While 'pInput.AtEnd {
-        Set jsonContent = jsonContent_pInput.ReadLine()
+    set iter = jsonContent.%GetIterator()
+    while iter.%GetNext(.key, .value, .type ) {
+        Write value.paciId
+        write "key = "_key_", value = "_value_", type = "_type,!
     }
+
+    Set key=$ORDER(jsonContent(""))
     
-    Set jsonObject = ##class(%DynamicAbstractObject).%FromJSON(jsonContent)
+    While (key'="") {
+        Write jsonContent.%Get(key).paciId
+        Set key=$ORDER(jsonContent(key))
+    }
 
-    Set req=##class(hcd.jsontohl7.JSONHL7Req).%New()
 
-    Set req.idPaciente = jsonObject."0".id
-    Set req.matricula = jsonObject."0".matricula
-    Set req.dtNasc = $System.SQL.TODATE(jsonObject."0".dtNasc,"DD/MM/YYYY")
-
-    Write req.idPaciente
-
+    
     Return sc
 }
 
@@ -52,6 +64,20 @@ ClassMethod Send(pDir As %String, pFileSpec As %String) As %Status
     }
     
     Return sc
+}
+
+ClassMethod teste2()
+{
+    Set datetime = $ZDATETIME($HOROLOG,8,2)
+    Set str = $ZSTRIP(datetime, "*W",":")
+    Write str
+}
+
+ClassMethod teste3()
+{
+    Set stream=##class(%FileCharacterStream).%New()
+	Set stream.Filename="/opt/user/output/paciente/10C47920-E5A9-11EC-8CDD-0242AC140002.json_2022-06-06_14.43.54.895"
+    Write stream.Attributes("Filename")
 }
 
 }

@@ -1,6 +1,14 @@
 Class hcd.jsondoctohl7.JSONDocHL7Req Extends Ens.Request
 {
 
+// current date time
+
+Property currentDateTime As %String;
+
+// message id
+
+Property messageId As %String;
+
 // Identificador do paciente no SI3, no hospital consultado.
 
 Property idPaciente As %Integer;
@@ -25,6 +33,18 @@ Property siglaEmissor As %String(MAXLEN = 200);
 
 Property dataEmissao As %Date;
 
+// RG 
+
+Property rg As %String;
+
+// CPF 
+
+Property cpf As %String;
+
+// CNS 
+
+Property cns As %String;
+
 Storage Default
 {
 <Data name="JSONDocHL7ReqDefaultData">
@@ -46,6 +66,21 @@ Storage Default
 </Value>
 <Value name="6">
 <Value>dataEmissao</Value>
+</Value>
+<Value name="7">
+<Value>currentDateTime</Value>
+</Value>
+<Value name="8">
+<Value>messageId</Value>
+</Value>
+<Value name="9">
+<Value>rg</Value>
+</Value>
+<Value name="10">
+<Value>cpf</Value>
+</Value>
+<Value name="11">
+<Value>cns</Value>
 </Value>
 </Data>
 <DefaultData>JSONDocHL7ReqDefaultData</DefaultData>
