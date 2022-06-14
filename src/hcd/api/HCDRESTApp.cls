@@ -43,7 +43,7 @@ ClassMethod WriteClinicalData() As %Status
         Set folder = "admissao/"
       } ElseIf data."0".dopaDsCompl '= "" {
         Set folder = "documento/"
-      } ElseIf data."0".comuDsComplemento '= "" {
+      } ElseIf data."0".comuDs '= "" {
         Set folder = "meiocomunicacao/"
       } ElseIf data."0".docdAdmNr '= "" {
         Set folder = "procedimento/"

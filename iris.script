@@ -3,6 +3,10 @@
     set sc = ##class(App.Installer).setup() 
     Do ##class(Security.Users).UnExpireUserPasswords("*")
 
+    zn "HSLIB"
+    //Install a Foundation namespace and change to it
+    Do ##class(HS.HC.Util.Installer).InstallFoundation("USER")
+    
     zn "USER"
     do $System.OBJ.LoadDir("/opt/user/src","ck",,1)
     zpm "load /opt/user/ -v"

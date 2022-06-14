@@ -13,6 +13,8 @@ XData DTL [ XMLNamespace = "http://www.intersystems.com/dtl" ]
 <annotation>Convert Patient Diagnosis to Hl7</annotation>
 <assign value='source.idPaciente' property='target.{PID:PatientID}' action='set' />
 <assign value='source.descricao' property='target.{DG1(1):DiagnosisDescription}' action='set' />
+<assign value='source.codigo' property='target.{DG1():DiagnosisCodeDG1.identifierST}' action='set' />
+<assign value='source.descricao' property='target.{DG1():DiagnosisCodeDG1.text}' action='set' />
 <assign value='source.codigo' property='target.{DG1(1):DiagnosisCodeDG1}' action='set' />
 <assign value='"I"' property='target.{PV1:PatientClass}' action='set' />
 <assign value='1' property='target.{PV1:SetIDPV1}' action='set' />

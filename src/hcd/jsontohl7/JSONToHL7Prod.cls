@@ -44,6 +44,9 @@ XData ProductionDefinition
   <Item Name="MsgRouterAdm" Category="" ClassName="EnsLib.MsgRouter.RoutingEngine" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
     <Setting Target="Host" Name="BusinessRuleName">hcd.jsonadmtohl7.JSONAdmToHL7Router</Setting>
   </Item>
+  <Item Name="MsgRouterProc" Category="" ClassName="EnsLib.MsgRouter.RoutingEngine" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
+    <Setting Target="Host" Name="BusinessRuleName">hcd.jsonproctosda.JSONProcToSDARouter</Setting>
+  </Item>
   <Item Name="HL7FileDocOperation" Category="" ClassName="EnsLib.HL7.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Adapter" Name="FilePath">/opt/user/output/documento/</Setting>
   </Item>
@@ -55,6 +58,15 @@ XData ProductionDefinition
   </Item>
   <Item Name="HL7FileAdmOperation" Category="" ClassName="EnsLib.HL7.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Adapter" Name="FilePath">/opt/user/output/admissao/</Setting>
+  </Item>
+  <Item Name="SDAFileProcOperation" Category="" ClassName="EnsLib.EDI.XML.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Adapter" Name="FilePath">/opt/user/output/procedimento/</Setting>
+    <Setting Target="Host" Name="Format"></Setting>
+    <Setting Target="Host" Name="Filename">%f_%Q</Setting>
+  </Item>
+  <Item Name="JSONProcFileService" Category="" ClassName="hcd.jsonproctosda.JSONProcFileService" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Adapter" Name="ArchivePath">/opt/user/output/procedimento/</Setting>
+    <Setting Target="Adapter" Name="FilePath">/opt/user/input/procedimento/</Setting>
   </Item>
 </Production>
 }

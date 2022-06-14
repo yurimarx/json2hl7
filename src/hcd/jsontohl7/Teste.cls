@@ -80,4 +80,102 @@ ClassMethod teste3()
     Write stream.Attributes("Filename")
 }
 
+ClassMethod GetDateTime(Input As %String) As %String
+{
+    Set date = $PIECE(Input, "T", 1)
+    Set temphour = $PIECE(Input, "T", 2)
+    Set hour = $PIECE(temphour, "Z", 1)
+    Return date_" "_hour
+}
+
+ClassMethod teste4()
+{
+ 
+    Set jsonContent = ""
+   
+    Set stream=##class(%FileCharacterStream).%New()
+    
+    Set stream.Filename="/opt/user/input/procedimento/B348A7E8-EB3F-11EC-8B59-0242AC140002.json"
+    
+    While 'stream.AtEnd {
+        Set line=stream.ReadLine()
+        Set jsonContent = jsonContent_line
+    }
+
+    Set jsonObject = ##class(%DynamicAbstractObject).%FromJSON(jsonContent)
+
+    Set iter = jsonObject.%GetIterator()
+
+    Set seq = 1
+    
+    While iter.%GetNext(.key, .value, .type ) {
+        
+        Set req = ##class(hcd.jsonproctosda.JSONProcSDAReq).%New()
+        
+        Set req.currentDateTime = $ZSTRIP($ZDATETIME($HOROLOG,8,2), "*W",":")
+        Set req.messageId = "B348A7E8-EB3F-11EC-8B59-0242AC140002.json"_seq 
+        Set seq = seq + 1
+        
+        Set req.idPaciente = value.paciId
+        Set req.idDocumento = value.docdSq
+        Set req.idInstituicao = value.docdInstCd
+        Set req.anoAdmissao = value.docdAdmAno
+        Set req.numeroAdmissao = value.docdAdmNr
+        Set req.numeroDocumento = value.docdIdDocumento
+
+        If value.docdDtDocumento '= "" {
+            Set req.dataDocumento = ..GetDateTime(value.docdDtDocumento)
+        }
+
+        Set req.tipoDocumento = value.docdTdocCd
+
+        Set req.tipoArquivo = value.docdTpArquivo
+
+        Set req.codigoProfissional = value.docdCproSqResp
+
+        Set req.nomeProfissional = value.cproNm
+
+        Set req.numeroConselho = value.cproIdConselho
+
+        Set req.siglaConselho = value.cproSgConselho 
+
+        Set req.siglaRegiaoConselho = value.cproSgRegiaoConselho
+
+        Set req.tipoAdmissao = value.docdTpAdmissao
+
+        Set req.descricaoOrigemSolicitacao = value.docdSoriCd
+
+        Set req.codigoOrigemSolicitacao = value.docdIdOrigem
+
+        If value.docdDtInclusao '= "" {
+            Set req.dataInclusaoDocumento = ..GetDateTime(value.docdDtInclusao)
+        }
+        
+        Set req.loginInclusaoDocumento = value.docdLoginInclusao
+
+        If value.docdDtLiberacao '= "" {
+            Set req.dataLiberacaoDocumento = ..GetDateTime(value.docdDtLiberacao)
+        }
+        
+        Set req.versaoDocumento = value.docdVersao
+
+        Set req.codigoItem = value.itemItgeCd
+
+        Set req.tipoItem = value.itemItgeTp
+
+        Set req.nomeItem = value.itgeNm 
+
+        If value.docdBlConteudo '= "" {
+            Do ##class(HS.Util.StreamUtils).Base64Decode(value.docdBlConteudo,.tDecodedStream)
+            Set req.conteudoArquivo = tDecodedStream    
+        } Else {
+            Set stream=##class(%GlobalBinaryStream).%New()
+            Set sc=stream.LinkToFile("/opt/user/semarquivo.pdf")
+            Set req.conteudoArquivo = stream
+        }
+
+        Set req.conteudoArquivo = value.docdBlConteudo
+    }
+}
+
 }

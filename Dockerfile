@@ -7,6 +7,7 @@ WORKDIR /opt/user
 RUN chown ${ISC_PACKAGE_MGRUSER}:${ISC_PACKAGE_IRISGROUP} /opt/user
 USER ${ISC_PACKAGE_MGRUSER}
 
+COPY semarquivo.pdf semarquivo.pdf
 COPY  Installer.cls Installer.cls
 COPY  module.xml module.xml
 COPY  src src
