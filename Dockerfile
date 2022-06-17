@@ -13,7 +13,9 @@ COPY  module.xml module.xml
 COPY  src src
 COPY input input
 COPY output output
+COPY json json
 COPY iris.script /tmp/iris.script
+
 
 USER root
 RUN chmod 777 -R /opt/user/input

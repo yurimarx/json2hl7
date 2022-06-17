@@ -9,6 +9,7 @@
     
     zn "USER"
     do $System.OBJ.LoadDir("/opt/user/src","ck",,1)
+    Do ##class(EnsLib.EDI.XML.SchemaXSD).Import("/opt/user/json/SDA3_schema.xsd")
     zpm "load /opt/user/ -v"
 
 halt
