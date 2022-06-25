@@ -13,6 +13,10 @@ Property messageId As %String;
 
 Property idPaciente As %Integer;
 
+// cnes - estabelecimento de saude de origem do paciente
+
+Property cnes As %String;
+
 // tipo de documento do paciente.
 
 Property tipoDocumento As %String;
@@ -31,7 +35,7 @@ Property siglaEmissor As %String(MAXLEN = 200);
 
 // Data da emissao
 
-Property dataEmissao As %Date;
+Property dataEmissao As %String;
 
 // RG 
 
@@ -59,27 +63,30 @@ Storage Default
 <Value>idPaciente</Value>
 </Value>
 <Value name="4">
-<Value>tipoDocumento</Value>
+<Value>cnes</Value>
 </Value>
 <Value name="5">
-<Value>numeroDocumento</Value>
+<Value>tipoDocumento</Value>
 </Value>
 <Value name="6">
-<Value>ufEmissor</Value>
+<Value>numeroDocumento</Value>
 </Value>
 <Value name="7">
-<Value>siglaEmissor</Value>
+<Value>ufEmissor</Value>
 </Value>
 <Value name="8">
-<Value>dataEmissao</Value>
+<Value>siglaEmissor</Value>
 </Value>
 <Value name="9">
-<Value>rg</Value>
+<Value>dataEmissao</Value>
 </Value>
 <Value name="10">
-<Value>cpf</Value>
+<Value>rg</Value>
 </Value>
 <Value name="11">
+<Value>cpf</Value>
+</Value>
+<Value name="12">
 <Value>cns</Value>
 </Value>
 </Data>

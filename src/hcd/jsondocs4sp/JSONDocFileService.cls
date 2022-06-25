@@ -41,20 +41,17 @@ Method OnProcessInput(pInput As %FileCharacterStream, pOutput As %RegisteredObje
             Set req.cpf = value.dopaDsCompl
         }
 
-    
         Set req.currentDateTime = $ZSTRIP($ZDATETIME($HOROLOG,8,2), "*W",":")
         Set req.messageId = $PIECE(pInput.Attributes("Filename"),"/",*)_"_"_seq 
         Set seq = seq + 1
         
         Set req.idPaciente = value.paciId
+        Set req.cnes = value.cnes
         Set req.tipoDocumento = value.tidoCd
         Set req.numeroDocumento = value.dopaDsCompl
-        If jsonObject."0".dopaDtEmissao '= ""
-            Set req.dataEmissao = $System.SQL.TODATE(value.dopaDtEmissao,"DD/MM/YYYY")
-        If jsonObject."0".dopaUnfeSg '= ""
-            Set req.ufEmissor = value.dopaUnfeSg
-        If jsonObject."0".oremSigla '= ""
-            Set req.siglaEmissor = value.oremSigla 
+        Set req.dataEmissao = value.dopaDtEmissao
+        Set req.ufEmissor = value.dopaUnfeSg
+        Set req.siglaEmissor = value.oremSigla 
         
         If ..Format = "HL7" {
             Set tSc=..SendRequestAsync("MsgHL7RouterDoc",req) 
@@ -63,7 +60,6 @@ Method OnProcessInput(pInput As %FileCharacterStream, pOutput As %RegisteredObje
         }
 
     }
-
     
     Quit tsc
 }

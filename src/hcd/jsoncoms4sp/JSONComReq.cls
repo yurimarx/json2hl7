@@ -13,6 +13,10 @@ Property messageId As %String;
 
 Property idPaciente As %Integer;
 
+// cnes - estabelecimento de saude de origem do paciente
+
+Property cnes As %String;
+
 // Código do tipo de meio de comunicação 
 
 Property codigoTipoMeioComunicacao As %String(MAXLEN = 200);
@@ -35,34 +39,37 @@ Property descricaoComunicacaoComplemento As %String(MAXLEN = 200);
 
 Storage Default
 {
-<Data name="JSONComHL7ReqDefaultData">
-<Subscript>"JSONComHL7Req"</Subscript>
+<Data name="JSONComReqDefaultData">
+<Subscript>"JSONComReq"</Subscript>
 <Value name="1">
-<Value>idPaciente</Value>
-</Value>
-<Value name="2">
-<Value>codigoTipoMeioComunicacao</Value>
-</Value>
-<Value name="3">
-<Value>descricaoTipoMeioComunicacao</Value>
-</Value>
-<Value name="4">
-<Value>descricaoComunicacao</Value>
-</Value>
-<Value name="5">
-<Value>descricaoComunicacaoComplemento</Value>
-</Value>
-<Value name="6">
 <Value>currentDateTime</Value>
 </Value>
-<Value name="7">
+<Value name="2">
 <Value>messageId</Value>
+</Value>
+<Value name="3">
+<Value>idPaciente</Value>
+</Value>
+<Value name="4">
+<Value>cnes</Value>
+</Value>
+<Value name="5">
+<Value>codigoTipoMeioComunicacao</Value>
+</Value>
+<Value name="6">
+<Value>descricaoTipoMeioComunicacao</Value>
+</Value>
+<Value name="7">
+<Value>descricaoComunicacao</Value>
 </Value>
 <Value name="8">
 <Value>descricaoComunicacao2</Value>
 </Value>
+<Value name="9">
+<Value>descricaoComunicacaoComplemento</Value>
+</Value>
 </Data>
-<DefaultData>JSONComHL7ReqDefaultData</DefaultData>
+<DefaultData>JSONComReqDefaultData</DefaultData>
 <Type>%Storage.Persistent</Type>
 }
 

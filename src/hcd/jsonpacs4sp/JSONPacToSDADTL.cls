@@ -13,8 +13,8 @@ XData DTL [ XMLNamespace = "http://www.intersystems.com/dtl" ]
 <annotation>Convert Patient Doc to Hl7</annotation>
 <assign value='source.idPaciente' property='target.{Patient.PatientNumbers(1).Number}' action='set' />
 <assign value='"MRN"' property='target.{Patient.PatientNumbers(1).NumberType}' action='set' />
-<assign value='"S4SP"' property='target.{SendingFacility}' action='set' />
-<assign value='"S4SP"' property='target.{Patient.PatientNumbers(1).Organization.Code}' action='set' />
+<assign value='source.cnes' property='target.{Patient.PatientNumbers(1).Organization.Code}' action='set' />
+<assign value='"MS"' property='target.{Patient.PatientNumbers(1).Organization.SDACodingStandard}' action='set' />
 <assign value='"AddOrUpdate"' property='target.{Action}' action='set' />
 <assign value='source.nomeFamilia' property='target.{Patient.Name.FamilyName}' action='set' />
 <assign value='source.nome' property='target.{Patient.Name.GivenName}' action='set' />
@@ -37,19 +37,39 @@ XData DTL [ XMLNamespace = "http://www.intersystems.com/dtl" ]
 <assign value='source.endeCep' property='target.{Patient.Addresses(1).Zip.Code}' action='set' />
 <assign value='source.endeCep' property='target.{Patient.Addresses(1).Zip.Description}' action='set' />
 <assign value='source.endeNmLogr_", "_source.endeNrImovel' property='target.{Patient.Addresses(1).Street}' action='set' />
-<assign value='source.endeComplemento' property='target.{Patient.Addresses(1).Extension}' action='set' />
 <assign value='source.endePaisSq' property='target.{Patient.Addresses(1).Country.Code}' action='set' />
+<assign value='"SI3"' property='target.{Patient.Addresses(1).City.SDACodingStandard}' action='set' />
+<assign value='"SI3"' property='target.{Patient.Addresses(1).State.SDACodingStandard}' action='set' />
+<assign value='"SI3"' property='target.{Patient.Addresses(1).Country.SDACodingStandard}' action='set' />
+<assign value='"SI3"' property='target.{Patient.Addresses(1).County.SDACodingStandard}' action='set' />
+<assign value='"SI3"' property='target.{Patient.Occupation.SDACodingStandard}' action='set' />
 <assign value='source.endePaisDs' property='target.{Patient.Addresses(1).Country.Description}' action='set' />
 <assign value='source.endeUf' property='target.{Patient.Addresses(1).State.Code}' action='set' />
 <assign value='source.endeDistSq' property='target.{Patient.Addresses(1).County.Code}' action='set' />
 <assign value='source.endeDistDs' property='target.{Patient.Addresses(1).County.Description}' action='set' />
-<assign value='source.endeNmBairro' property='target.{Patient.Addresses(1).County.Extension}' action='set' />
 <assign value='..Piece(source.mae," ",1)' property='target.{Patient.MothersFullName.GivenName}' action='set' />
 <assign value='..Piece(source.mae," ",2)' property='target.{Patient.MothersFullName.MiddleName}' action='set' />
 <assign value='..Piece(source.mae," ",3)' property='target.{Patient.MothersFullName.FamilyName}' action='set' />
 <assign value='source.endeUnfeDs' property='target.{Patient.Addresses(1).State.Description}' action='set' />
 <assign value='source.endeMuniSq' property='target.{Patient.Addresses(1).City.Code}' action='set' />
 <assign value='source.endeMuniDs' property='target.{Patient.Addresses(1).City.Description}' action='set' />
+<assign value='source.tpSexo' property='target.{Patient.BirthGender.Code}' action='set' />
+<assign value='source.sexo' property='target.{Patient.BirthGender.Description}' action='set' />
+<assign value='source.cnes' property='target.{SendingFacility}' action='set' />
+<assign value='"SI3"' property='target.{Patient.Religion.SDACodingStandard}' action='set' />
+<assign value='"SI3"' property='target.{Patient.MaritalStatus.SDACodingStandard}' action='set' />
+<assign value='"SI3"' property='target.{Patient.Gender.SDACodingStandard}' action='set' />
+<assign value='"SI3"' property='target.{Patient.BirthGender.SDACodingStandard}' action='set' />
+<assign value='"SI3"' property='target.{Patient.Race.SDACodingStandard}' action='set' />
+<assign value='"SI3"' property='target.{Patient.EthnicGroup.SDACodingStandard}' action='set' />
+<assign value='source.uf' property='target.{Patient.BirthPlace.State.Code}' action='set' />
+<assign value='"SI3"' property='target.{Patient.BirthPlace.State.SDACodingStandard}' action='set' />
+<assign value='source.muniSq' property='target.{Patient.BirthPlace.City.Code}' action='set' />
+<assign value='source.muniDs' property='target.{Patient.BirthPlace.City.Description}' action='set' />
+<assign value='"SI3"' property='target.{Patient.BirthPlace.City.SDACodingStandard}' action='set' />
+<assign value='source.origem' property='target.{Patient.BirthPlace.Country.Code}' action='set' />
+<assign value='"SI3"' property='target.{Patient.BirthPlace.Country.SDACodingStandard}' action='set' />
+<assign value='"SI3"' property='target.{Patient.Citizenship.SDACodingStandard}' action='set' />
 </transform>
 }
 

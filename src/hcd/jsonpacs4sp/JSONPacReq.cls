@@ -9,6 +9,10 @@ Property currentDateTime As %String;
 
 Property messageId As %String;
 
+// cnes - estabelecimento de saude de origem do paciente
+
+Property cnes As %String;
+
 // Identificador do paciente no SI3, no hospital consultado.
 
 Property idPaciente As %Integer;
@@ -35,7 +39,7 @@ Property nomeSocial As %String(MAXLEN = 200);
 
 // Data de nascimento do paciente
 
-Property dtNasc As %Date;
+Property dtNasc As %String;
 
 // Tipo de sexo do paciente representado por uma letra maiúscula. Ex: M, F...
 
@@ -224,156 +228,159 @@ Storage Default
 <Value>messageId</Value>
 </Value>
 <Value name="3">
-<Value>idPaciente</Value>
+<Value>cnes</Value>
 </Value>
 <Value name="4">
-<Value>matricula</Value>
+<Value>idPaciente</Value>
 </Value>
 <Value name="5">
-<Value>nome</Value>
+<Value>matricula</Value>
 </Value>
 <Value name="6">
-<Value>sobrenome</Value>
+<Value>nome</Value>
 </Value>
 <Value name="7">
-<Value>nomeFamilia</Value>
+<Value>sobrenome</Value>
 </Value>
 <Value name="8">
-<Value>nomeSocial</Value>
+<Value>nomeFamilia</Value>
 </Value>
 <Value name="9">
-<Value>dtNasc</Value>
+<Value>nomeSocial</Value>
 </Value>
 <Value name="10">
-<Value>tpSexo</Value>
+<Value>dtNasc</Value>
 </Value>
 <Value name="11">
-<Value>sexo</Value>
+<Value>tpSexo</Value>
 </Value>
 <Value name="12">
-<Value>origem</Value>
+<Value>sexo</Value>
 </Value>
 <Value name="13">
-<Value>uf</Value>
+<Value>origem</Value>
 </Value>
 <Value name="14">
-<Value>muniSq</Value>
+<Value>uf</Value>
 </Value>
 <Value name="15">
-<Value>muniDs</Value>
+<Value>muniSq</Value>
 </Value>
 <Value name="16">
-<Value>naturalidade</Value>
+<Value>muniDs</Value>
 </Value>
 <Value name="17">
-<Value>mae</Value>
+<Value>naturalidade</Value>
 </Value>
 <Value name="18">
-<Value>pai</Value>
+<Value>mae</Value>
 </Value>
 <Value name="19">
-<Value>conjuge</Value>
+<Value>pai</Value>
 </Value>
 <Value name="20">
-<Value>responsavel</Value>
+<Value>conjuge</Value>
 </Value>
 <Value name="21">
-<Value>padeGretSq</Value>
+<Value>responsavel</Value>
 </Value>
 <Value name="22">
-<Value>etinia</Value>
+<Value>padeGretSq</Value>
 </Value>
 <Value name="23">
-<Value>padeEtdeSq</Value>
+<Value>etinia</Value>
 </Value>
 <Value name="24">
-<Value>etniaDetalhe</Value>
+<Value>padeEtdeSq</Value>
 </Value>
 <Value name="25">
-<Value>padeReliSq</Value>
+<Value>etniaDetalhe</Value>
 </Value>
 <Value name="26">
-<Value>religiao</Value>
+<Value>padeReliSq</Value>
 </Value>
 <Value name="27">
-<Value>padeEsciSq</Value>
+<Value>religiao</Value>
 </Value>
 <Value name="28">
-<Value>estadoCivil</Value>
+<Value>padeEsciSq</Value>
 </Value>
 <Value name="29">
-<Value>padeOcupSq</Value>
+<Value>estadoCivil</Value>
 </Value>
 <Value name="30">
-<Value>ocupacao</Value>
+<Value>padeOcupSq</Value>
 </Value>
 <Value name="31">
-<Value>padeSifaSq</Value>
+<Value>ocupacao</Value>
 </Value>
 <Value name="32">
-<Value>situacaoFamiliar</Value>
+<Value>padeSifaSq</Value>
 </Value>
 <Value name="33">
-<Value>padeEcldSq</Value>
+<Value>situacaoFamiliar</Value>
 </Value>
 <Value name="34">
-<Value>escolaridade</Value>
+<Value>padeEcldSq</Value>
 </Value>
 <Value name="35">
-<Value>endeTpEndereco</Value>
+<Value>escolaridade</Value>
 </Value>
 <Value name="36">
-<Value>endeTienSq</Value>
+<Value>endeTpEndereco</Value>
 </Value>
 <Value name="37">
-<Value>endeCep</Value>
+<Value>endeTienSq</Value>
 </Value>
 <Value name="38">
-<Value>endeTiloCd</Value>
+<Value>endeCep</Value>
 </Value>
 <Value name="39">
-<Value>endeTpLogradouro</Value>
+<Value>endeTiloCd</Value>
 </Value>
 <Value name="40">
-<Value>endeNmLogr</Value>
+<Value>endeTpLogradouro</Value>
 </Value>
 <Value name="41">
-<Value>endeNrImovel</Value>
+<Value>endeNmLogr</Value>
 </Value>
 <Value name="42">
-<Value>endeComplemento</Value>
+<Value>endeNrImovel</Value>
 </Value>
 <Value name="43">
-<Value>endePaisSq</Value>
+<Value>endeComplemento</Value>
 </Value>
 <Value name="44">
-<Value>endePaisDs</Value>
+<Value>endePaisSq</Value>
 </Value>
 <Value name="45">
-<Value>endeUf</Value>
+<Value>endePaisDs</Value>
 </Value>
 <Value name="46">
-<Value>endeUnfeDs</Value>
+<Value>endeUf</Value>
 </Value>
 <Value name="47">
-<Value>endeMuniSq</Value>
+<Value>endeUnfeDs</Value>
 </Value>
 <Value name="48">
-<Value>endeMuniDs</Value>
+<Value>endeMuniSq</Value>
 </Value>
 <Value name="49">
-<Value>endeMuniCdIbge</Value>
+<Value>endeMuniDs</Value>
 </Value>
 <Value name="50">
-<Value>endeDistSq</Value>
+<Value>endeMuniCdIbge</Value>
 </Value>
 <Value name="51">
-<Value>endeDistDs</Value>
+<Value>endeDistSq</Value>
 </Value>
 <Value name="52">
-<Value>endeNmBairro</Value>
+<Value>endeDistDs</Value>
 </Value>
 <Value name="53">
+<Value>endeNmBairro</Value>
+</Value>
+<Value name="54">
 <Value>endeDsPontoRef</Value>
 </Value>
 </Data>

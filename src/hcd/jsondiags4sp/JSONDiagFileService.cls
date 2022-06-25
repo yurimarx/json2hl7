@@ -32,21 +32,19 @@ Method OnProcessInput(pInput As %FileCharacterStream, pOutput As %RegisteredObje
         Set seq = seq + 1
     
         Set req.idPaciente = value.paciId
+        Set req.cnes = value.cnes
         Set req.codigo = value.codigo
         Set req.descricao = value.descricao 
-        If value.dtInicio '= "" {
-            Set req.dataInicio = $System.SQL.TODATE(value.dtInicio,"DD/MM/YYYY")
-        }
-        Set req.status = value.status 
+        Set req.dataInicio = ##class(hcd.util.DateUtils).ConvertDatetime(value.dtInicio)
+        Set req.status = value.status
 
         If ..Format = "HL7" {
             Set tSc=..SendRequestAsync("MsgHL7RouterDiag",req) 
         } Else {
             Set tSc=..SendRequestAsync("MsgSDARouterDiag",req)
         }
-
     }
-
+    
     Quit tsc
 }
 

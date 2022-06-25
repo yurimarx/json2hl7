@@ -13,9 +13,17 @@ Property messageId As %String;
 
 Property idPaciente As %Integer;
 
+// cnes - estabelecimento de saude de origem do paciente
+
+Property cnes As %String;
+
 // Data ingresso
 
-Property dataIngresso As %Date;
+Property dataIngresso As %String;
+
+// Codigo instituicao admissao
+
+Property codigoInstituicaoAdmissao As %String;
 
 // Ano da admissao 
 
@@ -24,6 +32,18 @@ Property anoAdmissao As %Integer;
 // Número da admissão
 
 Property numeroAdmissao As %Integer;
+
+// Identificador unidade funcional
+
+Property idUnidadeFuncional As %Integer;
+
+// Descrição da unidade funcional
+
+Property nomeUnidadeFuncional As %String;
+
+// Sigla unidade funcional
+
+Property siglaUnidadeFuncional As %String;
 
 // Centro de custo.
 
@@ -51,21 +71,36 @@ Storage Default
 <Value>idPaciente</Value>
 </Value>
 <Value name="4">
-<Value>dataIngresso</Value>
+<Value>cnes</Value>
 </Value>
 <Value name="5">
-<Value>anoAdmissao</Value>
+<Value>dataIngresso</Value>
 </Value>
 <Value name="6">
-<Value>numeroAdmissao</Value>
+<Value>codigoInstituicaoAdmissao</Value>
 </Value>
 <Value name="7">
-<Value>centroCusto</Value>
+<Value>anoAdmissao</Value>
 </Value>
 <Value name="8">
-<Value>codigoEspecialidade</Value>
+<Value>numeroAdmissao</Value>
 </Value>
 <Value name="9">
+<Value>idUnidadeFuncional</Value>
+</Value>
+<Value name="10">
+<Value>nomeUnidadeFuncional</Value>
+</Value>
+<Value name="11">
+<Value>siglaUnidadeFuncional</Value>
+</Value>
+<Value name="12">
+<Value>centroCusto</Value>
+</Value>
+<Value name="13">
+<Value>codigoEspecialidade</Value>
+</Value>
+<Value name="14">
 <Value>especialidade</Value>
 </Value>
 </Data>

@@ -13,6 +13,10 @@ Property messageId As %String;
 
 Property idPaciente As %Integer;
 
+// cnes - estabelecimento de saude de origem do paciente
+
+Property cnes As %String;
+
 // Código do diagnóstico 
 
 Property codigo As %String(MAXLEN = 200);
@@ -23,7 +27,7 @@ Property descricao As %String(MAXLEN = 400);
 
 // Data de inicio do diagnostico
 
-Property dataInicio As %Date;
+Property dataInicio As %String;
 
 // Código de status do diagnostico com uma letra.
 
@@ -43,15 +47,18 @@ Storage Default
 <Value>idPaciente</Value>
 </Value>
 <Value name="4">
-<Value>codigo</Value>
+<Value>cnes</Value>
 </Value>
 <Value name="5">
-<Value>descricao</Value>
+<Value>codigo</Value>
 </Value>
 <Value name="6">
-<Value>dataInicio</Value>
+<Value>descricao</Value>
 </Value>
 <Value name="7">
+<Value>dataInicio</Value>
+</Value>
+<Value name="8">
 <Value>status</Value>
 </Value>
 </Data>

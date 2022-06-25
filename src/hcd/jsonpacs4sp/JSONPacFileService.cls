@@ -29,12 +29,14 @@ Method OnProcessInput(pInput As %FileCharacterStream, pOutput As %RegisteredObje
         Set req.currentDateTime = $ZSTRIP($ZDATETIME($HOROLOG,8,2), "*W",":")
         Set req.messageId = $PIECE(pInput.Attributes("Filename"),"/",*) 
         Set req.idPaciente = value.paciId
+        Set req.cnes = value.cnes
         Set req.matricula = value.matricula
         Set req.nome = $PIECE(value.nome," ")
         Set req.sobrenome = $PIECE(value.nome," ", 2)
         Set req.nomeFamilia = $PIECE(value.nome," ", 3)
         Set req.nomeSocial = value.nomeSocial
-        Set req.dtNasc = $System.SQL.TODATE(value.dtNasc,"DD/MM/YYYY")
+        Set tempDate = $zdateh(value.dtNasc,4)
+        Set req.dtNasc = $zdate(tempDate,3)_"T00:00:00" 
         Set req.tpSexo = value.tpSexo 
         Set req.sexo = value.sexo
         Set req.origem = value.origem

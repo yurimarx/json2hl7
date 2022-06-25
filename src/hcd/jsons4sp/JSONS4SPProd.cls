@@ -63,9 +63,12 @@ XData ProductionDefinition
   <Item Name="MsgSDARouterAdm" Category="" ClassName="EnsLib.MsgRouter.RoutingEngine" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
     <Setting Target="Host" Name="BusinessRuleName">hcd.jsonadms4sp.JSONAdmToSDARouter</Setting>
   </Item>
+  <Item Name="MsgSDARouterAgenda" Category="" ClassName="EnsLib.MsgRouter.RoutingEngine" PoolSize="1" Enabled="false" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
+    <Setting Target="Host" Name="BusinessRuleName">hcd.jsonagendas4sp.JSONAgendaToSDARouter</Setting>
+  </Item>
   <Item Name="HL7FileDocOperation" Category="" ClassName="EnsLib.HL7.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Adapter" Name="FilePath">/opt/user/output/documento/</Setting>
-  </Item>
+  </Item>  
   <Item Name="HL7FileComOperation" Category="" ClassName="EnsLib.HL7.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Adapter" Name="FilePath">/opt/user/output/meiocomunicacao/</Setting>
   </Item>
@@ -84,6 +87,10 @@ XData ProductionDefinition
     <Setting Target="Adapter" Name="ArchivePath"></Setting>
     <Setting Target="Adapter" Name="FilePath">/opt/user/input/procedimento/</Setting>
   </Item>
+  <Item Name="JSONAgendaFileService" Category="" ClassName="hcd.jsonagendas4sp.JSONAgendaFileService" PoolSize="1" Enabled="false" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Adapter" Name="ArchivePath"></Setting>
+    <Setting Target="Adapter" Name="FilePath">/opt/user/input/agenda/</Setting>
+  </Item>
   <Item Name="SDAFileAdmOperation" Category="" ClassName="EnsLib.EDI.XML.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Adapter" Name="FilePath">/opt/user/output/admissao/</Setting>
   </Item>
@@ -98,6 +105,9 @@ XData ProductionDefinition
   </Item>
   <Item Name="SDAFileDocOperation" Category="" ClassName="EnsLib.EDI.XML.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Adapter" Name="FilePath">/opt/user/output/documento/</Setting>
+  </Item>
+  <Item Name="SDAFileAgendaOperation" Category="" ClassName="EnsLib.EDI.XML.Operation.FileOperation" PoolSize="1" Enabled="false" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Adapter" Name="FilePath">/opt/user/output/agenda/</Setting>
   </Item>
 </Production>
 }
