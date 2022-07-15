@@ -13,6 +13,10 @@ Property messageId As %String;
 
 Property idPaciente As %Integer;
 
+// cnes - estabelecimento de saude de origem do paciente
+
+Property cnes As %String;
+
 // Identificador do documento.
 
 Property idDocumento As %Integer;
@@ -33,11 +37,19 @@ Property numeroAdmissao As %Integer;
 
 Property numeroDocumento As %String(MAXLEN = 200);
 
+// Descrição do documento
+
+Property descricaoDocumento As %String(MAXLEN = 500);
+
 // Data do documento
 
-Property dataDocumento As Ens.DataType.UTC;
+Property dataDocumento As %String;
 
 // Tipo de Documento 
+
+Property codigoTipoDocumento As %String;
+
+// Descrição do tipo de deocumento
 
 Property tipoDocumento As %String;
 
@@ -79,11 +91,19 @@ Property codigoOrigemSolicitacao As %String;
 
 // Data da inclusao do documento
 
-Property dataInclusaoDocumento As Ens.DataType.UTC;
+Property dataInclusaoDocumento As %String;
 
 // Login da inclusão 
 
 Property loginInclusaoDocumento As %String;
+
+// Data da alteracao do documento
+
+Property dataAlteracaoDocumento As %String;
+
+// Login da alteracao 
+
+Property loginAlteracaoDocumento As %String;
 
 // Versao documento
 
@@ -91,7 +111,11 @@ Property versaoDocumento As %String;
 
 // Data da liberacao do documento
 
-Property dataLiberacaoDocumento As Ens.DataType.UTC;
+Property dataLiberacaoDocumento As %String;
+
+// Conteudo do arquivo no formato base 64
+
+Property conteudoArquivo As %String(MAXLEN = "");
 
 // Codigo do item
 
@@ -104,10 +128,6 @@ Property tipoItem As %String;
 // Nome do item
 
 Property nomeItem As %String;
-
-// Conteudo do arquivo no formato base 64
-
-Property conteudoArquivo As %String(MAXLEN = "");
 
 Storage Default
 {
@@ -123,76 +143,91 @@ Storage Default
 <Value>idPaciente</Value>
 </Value>
 <Value name="4">
-<Value>idDocumento</Value>
+<Value>cnes</Value>
 </Value>
 <Value name="5">
-<Value>idInstituicao</Value>
+<Value>idDocumento</Value>
 </Value>
 <Value name="6">
-<Value>anoAdmissao</Value>
+<Value>idInstituicao</Value>
 </Value>
 <Value name="7">
-<Value>numeroAdmissao</Value>
+<Value>anoAdmissao</Value>
 </Value>
 <Value name="8">
-<Value>numeroDocumento</Value>
+<Value>numeroAdmissao</Value>
 </Value>
 <Value name="9">
-<Value>dataDocumento</Value>
+<Value>numeroDocumento</Value>
 </Value>
 <Value name="10">
-<Value>tipoDocumento</Value>
+<Value>dataDocumento</Value>
 </Value>
 <Value name="11">
-<Value>tipoArquivo</Value>
+<Value>codigoTipoDocumento</Value>
 </Value>
 <Value name="12">
-<Value>codigoProfissional</Value>
+<Value>tipoDocumento</Value>
 </Value>
 <Value name="13">
-<Value>nomeProfissional</Value>
+<Value>tipoArquivo</Value>
 </Value>
 <Value name="14">
-<Value>numeroConselho</Value>
+<Value>codigoProfissional</Value>
 </Value>
 <Value name="15">
-<Value>siglaConselho</Value>
+<Value>nomeProfissional</Value>
 </Value>
 <Value name="16">
-<Value>siglaRegiaoConselho</Value>
+<Value>numeroConselho</Value>
 </Value>
 <Value name="17">
-<Value>tipoAdmissao</Value>
+<Value>siglaConselho</Value>
 </Value>
 <Value name="18">
-<Value>descricaoOrigemSolicitacao</Value>
+<Value>siglaRegiaoConselho</Value>
 </Value>
 <Value name="19">
-<Value>codigoOrigemSolicitacao</Value>
+<Value>tipoAdmissao</Value>
 </Value>
 <Value name="20">
-<Value>dataInclusaoDocumento</Value>
+<Value>descricaoOrigemSolicitacao</Value>
 </Value>
 <Value name="21">
-<Value>loginInclusaoDocumento</Value>
+<Value>codigoOrigemSolicitacao</Value>
 </Value>
 <Value name="22">
-<Value>versaoDocumento</Value>
+<Value>dataInclusaoDocumento</Value>
 </Value>
 <Value name="23">
-<Value>dataLiberacaoDocumento</Value>
+<Value>loginInclusaoDocumento</Value>
 </Value>
 <Value name="24">
-<Value>codigoItem</Value>
+<Value>dataAlteracaoDocumento</Value>
 </Value>
 <Value name="25">
-<Value>tipoItem</Value>
+<Value>loginAlteracaoDocumento</Value>
 </Value>
 <Value name="26">
-<Value>nomeItem</Value>
+<Value>versaoDocumento</Value>
 </Value>
 <Value name="27">
+<Value>dataLiberacaoDocumento</Value>
+</Value>
+<Value name="28">
 <Value>conteudoArquivo</Value>
+</Value>
+<Value name="29">
+<Value>codigoItem</Value>
+</Value>
+<Value name="30">
+<Value>tipoItem</Value>
+</Value>
+<Value name="31">
+<Value>nomeItem</Value>
+</Value>
+<Value name="32">
+<Value>descricaoDocumento</Value>
 </Value>
 </Data>
 <DefaultData>JSONProcReqDefaultData</DefaultData>

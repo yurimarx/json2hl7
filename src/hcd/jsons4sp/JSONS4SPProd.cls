@@ -60,12 +60,18 @@ XData ProductionDefinition
   <Item Name="MsgSDARouterPac" Category="" ClassName="EnsLib.MsgRouter.RoutingEngine" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
     <Setting Target="Host" Name="BusinessRuleName">hcd.jsonpacs4sp.JSONPacToSDARouter</Setting>
   </Item>
+  <Item Name="MsgSDARouterVacina" Category="" ClassName="EnsLib.MsgRouter.RoutingEngine" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
+    <Setting Target="Host" Name="BusinessRuleName">hcd.jsonvacinas4sp.JSONVacinaToSDARouter</Setting>
+  </Item>
   <Item Name="MsgSDARouterAdm" Category="" ClassName="EnsLib.MsgRouter.RoutingEngine" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
     <Setting Target="Host" Name="BusinessRuleName">hcd.jsonadms4sp.JSONAdmToSDARouter</Setting>
   </Item>
+  <Item Name="MsgSDARouterAlergia" Category="" ClassName="EnsLib.MsgRouter.RoutingEngine" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
+    <Setting Target="Host" Name="BusinessRuleName">hcd.jsonalergias4sp.JSONAlergiaToSDARouter</Setting>
+  </Item>
   <Item Name="MsgSDARouterAgenda" Category="" ClassName="EnsLib.MsgRouter.RoutingEngine" PoolSize="1" Enabled="false" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
     <Setting Target="Host" Name="BusinessRuleName">hcd.jsonagendas4sp.JSONAgendaToSDARouter</Setting>
-  </Item>
+  </Item>  
   <Item Name="HL7FileDocOperation" Category="" ClassName="EnsLib.HL7.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Adapter" Name="FilePath">/opt/user/output/documento/</Setting>
   </Item>  
@@ -91,6 +97,14 @@ XData ProductionDefinition
     <Setting Target="Adapter" Name="ArchivePath"></Setting>
     <Setting Target="Adapter" Name="FilePath">/opt/user/input/agenda/</Setting>
   </Item>
+  <Item Name="JSONAlergiaFileService" Category="" ClassName="hcd.jsonalergias4sp.JSONAlergiaFileService" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Adapter" Name="ArchivePath"></Setting>
+    <Setting Target="Adapter" Name="FilePath">/opt/user/input/alergia/</Setting>
+  </Item>
+  <Item Name="JSONVacinaFileService" Category="" ClassName="hcd.jsonvacinas4sp.JSONVacinaFileService" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Adapter" Name="ArchivePath"></Setting>
+    <Setting Target="Adapter" Name="FilePath">/opt/user/input/vacina/</Setting>
+  </Item>
   <Item Name="SDAFileAdmOperation" Category="" ClassName="EnsLib.EDI.XML.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Adapter" Name="FilePath">/opt/user/output/admissao/</Setting>
   </Item>
@@ -108,6 +122,12 @@ XData ProductionDefinition
   </Item>
   <Item Name="SDAFileAgendaOperation" Category="" ClassName="EnsLib.EDI.XML.Operation.FileOperation" PoolSize="1" Enabled="false" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Adapter" Name="FilePath">/opt/user/output/agenda/</Setting>
+  </Item>
+  <Item Name="SDAFileAlergiaOperation" Category="" ClassName="EnsLib.EDI.XML.Operation.FileOperation" PoolSize="1" Enabled="false" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Adapter" Name="FilePath">/opt/user/output/alergia/</Setting>
+  </Item>
+  <Item Name="SDAFileVacinaOperation" Category="" ClassName="EnsLib.EDI.XML.Operation.FileOperation" PoolSize="1" Enabled="false" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Adapter" Name="FilePath">/opt/user/output/vacina/</Setting>
   </Item>
 </Production>
 }

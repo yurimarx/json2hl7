@@ -44,12 +44,25 @@ ClassMethod WriteClinicalData() As %Status
       } ElseIf data."0".dopaDsCompl '= "" {
         Set folder = "documento/"
       } ElseIf data."0".comuDs '= "" {
-        Set folder = "meiocomunicacao/"
-      } ElseIf data."0".docdAdmNr '= "" {
+        Set folder = "meiocomunicacao/" 
+      } ElseIf data."0".docdAdmNr '= "" { 
         Set folder = "procedimento/"
       } ElseIf data."0".codigo '= "" {
         Set folder = "diagnostico/"
+      } ElseIf data."0".alerDs '= "" {
+        Set folder = "alergia/"
+      } ElseIf data."0".vacina '= "" {
+        Set folder = "vacina/"
+      } ElseIf data."0".agendaSq '= "" {
+        Set folder = "agenda/"
+      } ElseIf data."0".pareCd '= "" {
+        Set folder = "familiar/"
+      } ElseIf data."0".amcvStNormal '= "" {
+        Set folder = "fisico/"
+      } ElseIf data."0".ammpNrPeso '= "" {
+        Set folder = "medidacorpo/"
       }
+      
     }
      
     set tTempFile=##class(%FileCharacterStream).%New()

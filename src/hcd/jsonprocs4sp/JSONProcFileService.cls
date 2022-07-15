@@ -29,10 +29,12 @@ Method OnProcessInput(pInput As %FileCharacterStream, pOutput As %RegisteredObje
         
         Set req.idPaciente = value.paciId
         Set req.idDocumento = value.docdSq
+        Set req.cnes = value.cnes
         Set req.idInstituicao = value.docdInstCd
         Set req.anoAdmissao = value.docdAdmAno
         Set req.numeroAdmissao = value.docdAdmNr
         Set req.numeroDocumento = value.docdIdDocumento
+        Set req.descricaoDocumento = value.tdocDs
 
         If value.docdDtDocumento '= "" {
             Set req.dataDocumento = ..GetDateTime(value.docdDtDocumento)
@@ -79,14 +81,7 @@ Method OnProcessInput(pInput As %FileCharacterStream, pOutput As %RegisteredObje
         If value.docdBlConteudo '= "" {
             Set req.conteudoArquivo = value.docdBlConteudo
         } Else {
-            Set stream=##class(%Stream.GlobalBinary).%New()
-            Set sc=stream.LinkToFile("/opt/user/semarquivo.pdf")
-            Do ##class(HS.Util.StreamUtils).Base64Encode(stream, .outstream) 
-            Set content = ""
-            While 'outstream.AtEnd {
-                Set content = content_outstream.Read()
-            }
-            Set req.conteudoArquivo = content 
+            Set req.conteudoArquivo = ..GetSemArquivo() 
         }
 
         Set req.conteudoArquivo = value.docdBlConteudo
@@ -105,6 +100,18 @@ ClassMethod GetDateTime(Input As %String) As %TimeStamp
     Set temphour = $PIECE(Input, "T", 2)
     Set hour = $PIECE(temphour, "Z", 1)
     Return $SYSTEM.SQL.Functions.TOTIMESTAMP(date_" "_hour, "YYYY-MM-DD HH:MI:SS")
+}
+
+ClassMethod GetSemArquivo() As %String
+{
+    Set stream=##class(%Stream.FileBinary).%New() 
+    Set sc=stream.LinkToFile("/opt/user/semarquivo.pdf")
+    Do ##class(HS.Util.StreamUtils).Base64Encode(stream, .outstream) 
+    Set content = ""
+    While 'outstream.AtEnd {
+        Set content = content_outstream.Read()
+    }
+    Return content
 }
 
 }
