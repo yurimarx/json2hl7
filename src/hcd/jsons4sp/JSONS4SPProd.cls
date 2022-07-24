@@ -71,6 +71,9 @@ XData ProductionDefinition
   </Item>
   <Item Name="MsgSDARouterAgenda" Category="" ClassName="EnsLib.MsgRouter.RoutingEngine" PoolSize="1" Enabled="false" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
     <Setting Target="Host" Name="BusinessRuleName">hcd.jsonagendas4sp.JSONAgendaToSDARouter</Setting>
+  </Item>
+  <Item Name="MsgSDARouterFamiliar" Category="" ClassName="EnsLib.MsgRouter.RoutingEngine" PoolSize="1" Enabled="false" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
+    <Setting Target="Host" Name="BusinessRuleName">hcd.jsonfamiliars4sp.JSONFamiliarToSDARouter</Setting>
   </Item>  
   <Item Name="HL7FileDocOperation" Category="" ClassName="EnsLib.HL7.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Adapter" Name="FilePath">/opt/user/output/documento/</Setting>
@@ -105,8 +108,15 @@ XData ProductionDefinition
     <Setting Target="Adapter" Name="ArchivePath"></Setting>
     <Setting Target="Adapter" Name="FilePath">/opt/user/input/vacina/</Setting>
   </Item>
+  <Item Name="JSONFamiliarFileService" Category="" ClassName="hcd.jsonfamiliars4sp.JSONFamiliarFileService" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Adapter" Name="ArchivePath"></Setting>
+    <Setting Target="Adapter" Name="FilePath">/opt/user/input/familiar/</Setting>
+  </Item>
   <Item Name="SDAFileAdmOperation" Category="" ClassName="EnsLib.EDI.XML.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Adapter" Name="FilePath">/opt/user/output/admissao/</Setting>
+  </Item>
+  <Item Name="SDAFileFamiliarOperation" Category="" ClassName="EnsLib.EDI.XML.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Adapter" Name="FilePath">/opt/user/output/familiar/</Setting>
   </Item>
   <Item Name="SDAFilePacOperation" Category="" ClassName="EnsLib.EDI.XML.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Adapter" Name="FilePath">/opt/user/output/paciente/</Setting>

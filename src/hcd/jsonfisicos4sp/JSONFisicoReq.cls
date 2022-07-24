@@ -1,4 +1,4 @@
-Class hcd.jsonvacinas4sp.JSONVacinaReq Extends Ens.Request
+Class hcd.jsonfisicos4sp.JSONFisicoReq Extends Ens.Request
 {
 
 // current date time
@@ -33,18 +33,26 @@ Property nomeEstabelecimento As %String;
 
 Property nomeReduzidoEstabelecimento As %String;
 
-// Descrição da alergia  
+// Indicadores físicos 
 
-Property vacina As %String(MAXLEN = 300);
+Property indicadoresFisicos As array Of IndicadorFisico;
 
-// Data base 
+// Data de inclusao 
 
-Property dataBase As %String;
+Property dataInclusao As %String;
+
+// Data de liberacao 
+
+Property dataLiberacao As %String;
+
+// Data de alteracao 
+
+Property dataAlteracao As %String;
 
 Storage Default
 {
-<Data name="JSONVacinaReqDefaultData">
-<Subscript>"JSONVacinaReq"</Subscript>
+<Data name="JSONFisicoReqDefaultData">
+<Subscript>"JSONFisicoReq"</Subscript>
 <Value name="1">
 <Value>currentDateTime</Value>
 </Value>
@@ -58,25 +66,33 @@ Storage Default
 <Value>cnes</Value>
 </Value>
 <Value name="5">
-<Value>vacina</Value>
+<Value>dataInclusao</Value>
 </Value>
 <Value name="6">
-<Value>dataBase</Value>
+<Value>dataLiberacao</Value>
 </Value>
 <Value name="7">
-<Value>autoridade</Value>
+<Value>dataAlteracao</Value>
 </Value>
 <Value name="8">
-<Value>siglaEstabelecimento</Value>
+<Value>autoridade</Value>
 </Value>
 <Value name="9">
-<Value>nomeEstabelecimento</Value>
+<Value>siglaEstabelecimento</Value>
 </Value>
 <Value name="10">
+<Value>nomeEstabelecimento</Value>
+</Value>
+<Value name="11">
 <Value>nomeReduzidoEstabelecimento</Value>
 </Value>
 </Data>
-<DefaultData>JSONVacinaReqDefaultData</DefaultData>
+<Data name="indicadoresFisicos">
+<Attribute>indicadoresFisicos</Attribute>
+<Structure>subnode</Structure>
+<Subscript>"hcd.jsonfisicos4sp.JSONFisicoReq.indicadoresFisicos"</Subscript>
+</Data>
+<DefaultData>JSONFisicoReqDefaultData</DefaultData>
 <Type>%Storage.Persistent</Type>
 }
 

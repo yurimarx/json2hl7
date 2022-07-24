@@ -17,6 +17,22 @@ Property cnes As %String;
 
 Property idPaciente As %Integer;
 
+// Entidade proprietaria da informacao
+
+Property autoridade As %String;
+
+// Sigla do estabelecimento de saúde
+
+Property siglaEstabelecimento As %String;
+
+// Nome completo do estabelecimento de saúde
+
+Property nomeEstabelecimento As %String;
+
+// Nome resumido do estabelecimento de saúde
+
+Property nomeReduzidoEstabelecimento As %String;
+
 // Matricula do paciente no SI3, no hospital consultado.
 
 Property matricula As %String;
@@ -382,6 +398,18 @@ Storage Default
 </Value>
 <Value name="54">
 <Value>endeDsPontoRef</Value>
+</Value>
+<Value name="55">
+<Value>autoridade</Value>
+</Value>
+<Value name="56">
+<Value>siglaEstabelecimento</Value>
+</Value>
+<Value name="57">
+<Value>nomeEstabelecimento</Value>
+</Value>
+<Value name="58">
+<Value>nomeReduzidoEstabelecimento</Value>
 </Value>
 </Data>
 <DefaultData>JSONPacReqDefaultData</DefaultData>

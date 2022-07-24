@@ -9,13 +9,29 @@ Property currentDateTime As %String;
 
 Property messageId As %String;
 
+// cnes - estabelecimento de saude de origem do paciente
+
+Property cnes As %String;
+
 // Identificador do paciente no SI3, no hospital consultado.
 
 Property idPaciente As %Integer;
 
-// cnes - estabelecimento de saude de origem do paciente
+// Entidade proprietaria da informacao
 
-Property cnes As %String;
+Property autoridade As %String;
+
+// Sigla do estabelecimento de saúde
+
+Property siglaEstabelecimento As %String;
+
+// Nome completo do estabelecimento de saúde
+
+Property nomeEstabelecimento As %String;
+
+// Nome resumido do estabelecimento de saúde
+
+Property nomeReduzidoEstabelecimento As %String;
 
 // tipo de documento do paciente.
 
@@ -88,6 +104,18 @@ Storage Default
 </Value>
 <Value name="12">
 <Value>cns</Value>
+</Value>
+<Value name="13">
+<Value>autoridade</Value>
+</Value>
+<Value name="14">
+<Value>siglaEstabelecimento</Value>
+</Value>
+<Value name="15">
+<Value>nomeEstabelecimento</Value>
+</Value>
+<Value name="16">
+<Value>nomeReduzidoEstabelecimento</Value>
 </Value>
 </Data>
 <DefaultData>JSONDocReqDefaultData</DefaultData>
