@@ -13,12 +13,6 @@ Method OnProcessInput(pInput As %FileCharacterStream, pOutput As %RegisteredObje
     
     Set jsonContent = ""
 
-    Set rg = ""
-
-    Set cns = ""
-
-    Set cpf = ""
-    
     While 'pInput.AtEnd {
         Set jsonContent = jsonContent_pInput.ReadLine()
     }
@@ -32,14 +26,6 @@ Method OnProcessInput(pInput As %FileCharacterStream, pOutput As %RegisteredObje
     while iter.%GetNext(.key, .value, .type ) {
         
         Set req = ##class(hcd.jsondocs4sp.JSONDocReq).%New()
-         
-        If value.tidoCd = "CNS" {
-            Set req.cns = value.dopaDsCompl
-        } ElseIf value.tidoCd = "RG" {
-            Set req.rg = value.dopaDsCompl
-        } ElseIf value.tidoCd = "CPF" { 
-            Set req.cpf = value.dopaDsCompl
-        }
 
         Set req.currentDateTime = $ZSTRIP($ZDATETIME($HOROLOG,8,2), "*W",":")
         Set req.messageId = $PIECE(pInput.Attributes("Filename"),"/",*)_"_"_seq 
@@ -47,6 +33,12 @@ Method OnProcessInput(pInput As %FileCharacterStream, pOutput As %RegisteredObje
         
         Set req.idPaciente = value.paciId
         Set req.cnes = value.cnes
+
+        Set req.autoridade = value.assigningAuthority
+        Set req.nomeEstabelecimento = value.unfuNome
+        Set req.nomeReduzidoEstabelecimento = value.unfuNomeReduz
+        Set req.siglaEstabelecimento = value.unfuSigla
+
         Set req.tipoDocumento = value.tidoCd
         Set req.numeroDocumento = value.dopaDsCompl
         Set req.dataEmissao = value.dopaDtEmissao

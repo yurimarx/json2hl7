@@ -49,6 +49,10 @@ Property anoAdmissao As %Integer;
 
 Property numeroAdmissao As %Integer;
 
+// Tipo de admissao - AM ambulatorio, PS pronto socorro, IN  internacao, SA servico de apoio, HD hospital dia, subtipo AM 
+
+Property tipoAdmissao As %String;
+
 // Identificador unidade funcional
 
 Property idUnidadeFuncional As %Integer;
@@ -130,6 +134,9 @@ Storage Default
 </Value>
 <Value name="18">
 <Value>nomeReduzidoEstabelecimento</Value>
+</Value>
+<Value name="19">
+<Value>tipoAdmissao</Value>
 </Value>
 </Data>
 <DefaultData>JSONAdmReqDefaultData</DefaultData>

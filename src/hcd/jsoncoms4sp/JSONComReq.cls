@@ -37,21 +37,13 @@ Property nomeReduzidoEstabelecimento As %String;
 
 Property codigoTipoMeioComunicacao As %String(MAXLEN = 200);
 
-// Descrição do tipo de meio de comunicação
+// Descrição do meio de comunicação
 
-Property descricaoTipoMeioComunicacao As %String;
+Property descricaoMeioComunicacao As %String;
 
-// Descrição do meio de comunicação. Valor do meio de comunicação.
+// Complemento do meio de comunicação
 
-Property descricaoComunicacao As %String(MAXLEN = 200);
-
-// Descrição do meio de comunicação2. Valor do meio de comunicação.
-
-Property descricaoComunicacao2 As %String(MAXLEN = 200);
-
-// Descrição de complemento do meio de comunicação
-
-Property descricaoComunicacaoComplemento As %String(MAXLEN = 200);
+Property complementoMeioComunicacao As %String(MAXLEN = 200);
 
 Storage Default
 {
@@ -64,37 +56,31 @@ Storage Default
 <Value>messageId</Value>
 </Value>
 <Value name="3">
-<Value>idPaciente</Value>
-</Value>
-<Value name="4">
 <Value>cnes</Value>
 </Value>
+<Value name="4">
+<Value>idPaciente</Value>
+</Value>
 <Value name="5">
-<Value>codigoTipoMeioComunicacao</Value>
-</Value>
-<Value name="6">
-<Value>descricaoTipoMeioComunicacao</Value>
-</Value>
-<Value name="7">
-<Value>descricaoComunicacao</Value>
-</Value>
-<Value name="8">
-<Value>descricaoComunicacao2</Value>
-</Value>
-<Value name="9">
-<Value>descricaoComunicacaoComplemento</Value>
-</Value>
-<Value name="10">
 <Value>autoridade</Value>
 </Value>
-<Value name="11">
+<Value name="6">
 <Value>siglaEstabelecimento</Value>
 </Value>
-<Value name="12">
+<Value name="7">
 <Value>nomeEstabelecimento</Value>
 </Value>
-<Value name="13">
+<Value name="8">
 <Value>nomeReduzidoEstabelecimento</Value>
+</Value>
+<Value name="9">
+<Value>codigoTipoMeioComunicacao</Value>
+</Value>
+<Value name="10">
+<Value>descricaoMeioComunicacao</Value>
+</Value>
+<Value name="11">
+<Value>complementoMeioComunicacao</Value>
 </Value>
 </Data>
 <DefaultData>JSONComReqDefaultData</DefaultData>

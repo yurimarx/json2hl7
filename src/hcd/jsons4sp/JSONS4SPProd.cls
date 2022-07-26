@@ -10,6 +10,10 @@ XData ProductionDefinition
     <Setting Target="Adapter" Name="FilePath">/opt/user/input/paciente/</Setting>
     <Setting Target="Adapter" Name="ArchivePath"></Setting>
   </Item>
+  <Item Name="JSONFisicoFileService" Category="" ClassName="hcd.jsonfisicos4sp.JSONFisicoFileService" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Adapter" Name="FilePath">/opt/user/input/fisico/</Setting>
+    <Setting Target="Adapter" Name="ArchivePath"></Setting>
+  </Item>
   <Item Name="HL7FilePacOperation" Category="" ClassName="EnsLib.HL7.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Adapter" Name="FilePath">/opt/user/output/paciente/</Setting>
   </Item>
@@ -47,6 +51,9 @@ XData ProductionDefinition
   </Item>
   <Item Name="MsgSDARouterDoc" Category="" ClassName="EnsLib.MsgRouter.RoutingEngine" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
     <Setting Target="Host" Name="BusinessRuleName">hcd.jsondocs4sp.JSONDocToSDARouter</Setting>
+  </Item>
+  <Item Name="MsgSDARouterFisico" Category="" ClassName="EnsLib.MsgRouter.RoutingEngine" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
+    <Setting Target="Host" Name="BusinessRuleName">hcd.jsonfisicos4sp.JSONFisicoToSDARouter</Setting>
   </Item>
   <Item Name="MsgSDARouterProc" Category="" ClassName="EnsLib.MsgRouter.RoutingEngine" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
     <Setting Target="Host" Name="BusinessRuleName">hcd.jsonprocs4sp.JSONProcToSDARouter</Setting>
@@ -89,6 +96,11 @@ XData ProductionDefinition
   </Item>
   <Item Name="SDAFileProcOperation" Category="" ClassName="EnsLib.EDI.XML.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Adapter" Name="FilePath">/opt/user/output/procedimento/</Setting>
+    <Setting Target="Host" Name="Format"></Setting>
+    <Setting Target="Host" Name="Filename">%f_%Q</Setting>
+  </Item>
+  <Item Name="SDAFileFisicoOperation" Category="" ClassName="EnsLib.EDI.XML.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Adapter" Name="FilePath">/opt/user/output/fisico/</Setting>
     <Setting Target="Host" Name="Format"></Setting>
     <Setting Target="Host" Name="Filename">%f_%Q</Setting>
   </Item>

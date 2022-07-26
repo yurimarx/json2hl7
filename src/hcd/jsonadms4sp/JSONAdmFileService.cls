@@ -26,10 +26,16 @@ Method OnProcessInput(pInput As %FileCharacterStream, pOutput As %RegisteredObje
         Set req.idPaciente = value.paciId
         Set req.cnes = value.cnes
 
+        Set req.autoridade = value.assigningAuthority
+        Set req.nomeEstabelecimento = value.unfuNome
+        Set req.nomeReduzidoEstabelecimento = value.unfuNomeReduz
+        Set req.siglaEstabelecimento = value.unfuSigla
+
         Set req.dataIngresso = ##class(hcd.util.DateUtils).ConvertDatetime(value.dtIngresso)
         Set req.codigoInstituicaoAdmissao = value.admInstCd
         Set req.anoAdmissao = value.admAno
-        Set req.numeroAdmissao = value.admNr 
+        Set req.numeroAdmissao = value.admNr
+        Set req.tipoAdmissao = value.admTp 
         Set req.idUnidadeFuncional = value.unfuSq
         Set req.nomeUnidadeFuncional = value.unfuDs
         Set req.siglaUnidadeFuncional = value.unfuDsSigla

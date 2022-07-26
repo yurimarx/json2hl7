@@ -66,7 +66,7 @@ ClassMethod WriteClinicalData() As %Status
     }
      
     set tTempFile=##class(%FileCharacterStream).%New()
-    Set fileName = "/opt/user/input/"_folder_$SYSTEM.Util.CreateGUID()_".json"
+    Set fileName = ##class(hcd.util.EnvUtil).GetEnv("rootfolder")_folder_$SYSTEM.Util.CreateGUID()_".json"
     set tTempFile.Filename= fileName 
     set tSC=tTempFile.CopyFrom(%request.Content)
     set returnValue=tTempFile.%Save()

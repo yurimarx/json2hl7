@@ -15,6 +15,7 @@ COPY input input
 COPY output output
 COPY json json
 COPY iris.script /tmp/iris.script
+COPY hcd.properties /var/opt/hcd.properties
 
 
 USER root

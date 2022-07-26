@@ -15,12 +15,12 @@ XData DTL [ XMLNamespace = "http://www.intersystems.com/dtl" ]
 <assign value='"MRN"' property='target.{Patient.PatientNumbers(1).NumberType}' action='set' />
 <assign value='source.cnes' property='target.{SendingFacility}' action='set' />
 <assign value='"AddOrUpdate"' property='target.{Action}' action='set' />
-<assign value='source.cnes' property='target.{Patient.PatientNumbers(1).Organization.Code}' action='set' />
+<assign value='source.autoridade' property='target.{Patient.PatientNumbers(1).Organization.Code}' action='set' />
 <assign value='source.dataAlteracao' property='target.{FamilyHistories(1).UpdatedOn}' action='set' />
-<assign value='"SI3"' property='target.{FamilyHistories(1).FamilyMember.SDACodingStandard}' action='set' />
+<assign value='"S4SP"' property='target.{FamilyHistories(1).FamilyMember.SDACodingStandard}' action='set' />
 <assign value='source.indicadorParentesco' property='target.{FamilyHistories(1).FamilyMember.Code}' action='set' />
 <assign value='source.parentesco' property='target.{FamilyHistories(1).FamilyMember.Description}' action='set' />
-<assign value='"SI3"' property='target.{FamilyHistories(1).Diagnosis.SDACodingStandard}' action='set' />
+<assign value='"S4SP"' property='target.{FamilyHistories(1).Diagnosis.SDACodingStandard}' action='set' />
 <assign value='source.dataInclusao' property='target.{FamilyHistories(1).EnteredOn}' action='set' />
 <if condition='source.codigoAntecedente = "OUT"' >
 <true>
@@ -34,6 +34,7 @@ XData DTL [ XMLNamespace = "http://www.intersystems.com/dtl" ]
 </if>
 <assign value='source.dataLiberacao' property='target.{FamilyHistories(1).FromTime}' action='set' />
 <assign value='source.dataAlteracao' property='target.{FamilyHistories(1).ToTime}' action='set' />
+<assign value='"S4SP"' property='target.{Patient.PatientNumbers(1).Organization.SDACodingStandard}' action='set' />
 </transform>
 }
 

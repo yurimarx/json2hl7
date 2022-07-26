@@ -30,6 +30,12 @@ Method OnProcessInput(pInput As %FileCharacterStream, pOutput As %RegisteredObje
         Set req.messageId = $PIECE(pInput.Attributes("Filename"),"/",*) 
         Set req.idPaciente = value.paciId
         Set req.cnes = value.cnes
+
+        Set req.autoridade = value.assigningAuthority
+        Set req.nomeEstabelecimento = value.unfuNome
+        Set req.nomeReduzidoEstabelecimento = value.unfuNomeReduz
+        Set req.siglaEstabelecimento = value.unfuSigla
+
         Set req.matricula = value.matricula
         Set req.nome = $PIECE(value.nome," ")
         Set req.sobrenome = $PIECE(value.nome," ", 2)

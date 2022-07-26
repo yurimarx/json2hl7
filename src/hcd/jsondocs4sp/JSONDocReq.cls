@@ -53,18 +53,6 @@ Property siglaEmissor As %String(MAXLEN = 200);
 
 Property dataEmissao As %String;
 
-// RG 
-
-Property rg As %String;
-
-// CPF 
-
-Property cpf As %String;
-
-// CNS 
-
-Property cns As %String;
-
 Storage Default
 {
 <Data name="JSONDocReqDefaultData">
@@ -76,46 +64,37 @@ Storage Default
 <Value>messageId</Value>
 </Value>
 <Value name="3">
-<Value>idPaciente</Value>
-</Value>
-<Value name="4">
 <Value>cnes</Value>
 </Value>
+<Value name="4">
+<Value>idPaciente</Value>
+</Value>
 <Value name="5">
-<Value>tipoDocumento</Value>
-</Value>
-<Value name="6">
-<Value>numeroDocumento</Value>
-</Value>
-<Value name="7">
-<Value>ufEmissor</Value>
-</Value>
-<Value name="8">
-<Value>siglaEmissor</Value>
-</Value>
-<Value name="9">
-<Value>dataEmissao</Value>
-</Value>
-<Value name="10">
-<Value>rg</Value>
-</Value>
-<Value name="11">
-<Value>cpf</Value>
-</Value>
-<Value name="12">
-<Value>cns</Value>
-</Value>
-<Value name="13">
 <Value>autoridade</Value>
 </Value>
-<Value name="14">
+<Value name="6">
 <Value>siglaEstabelecimento</Value>
 </Value>
-<Value name="15">
+<Value name="7">
 <Value>nomeEstabelecimento</Value>
 </Value>
-<Value name="16">
+<Value name="8">
 <Value>nomeReduzidoEstabelecimento</Value>
+</Value>
+<Value name="9">
+<Value>tipoDocumento</Value>
+</Value>
+<Value name="10">
+<Value>numeroDocumento</Value>
+</Value>
+<Value name="11">
+<Value>ufEmissor</Value>
+</Value>
+<Value name="12">
+<Value>siglaEmissor</Value>
+</Value>
+<Value name="13">
+<Value>dataEmissao</Value>
 </Value>
 </Data>
 <DefaultData>JSONDocReqDefaultData</DefaultData>

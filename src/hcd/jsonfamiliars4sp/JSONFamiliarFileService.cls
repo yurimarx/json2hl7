@@ -31,7 +31,13 @@ Method OnProcessInput(pInput As %FileCharacterStream, pOutput As %RegisteredObje
         Set seq = seq + 1
         
         Set req.idPaciente = value.paciId 
-        Set req.cnes = value.cnes 
+        Set req.cnes = value.cnes
+
+        Set req.autoridade = value.assigningAuthority
+        Set req.nomeEstabelecimento = value.unfuNome
+        Set req.nomeReduzidoEstabelecimento = value.unfuNomeReduz
+        Set req.siglaEstabelecimento = value.unfuSigla
+
         Set req.indicadorParentesco = value.anfaPareSq
         Set req.parentesco = value.pareCd
         Set req.identificadorAntecedente = value.anfaAnteSq 
