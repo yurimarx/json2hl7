@@ -1,4 +1,4 @@
-Class hcd.jsonfisicos4sp.IndicadorFisico Extends Ens.Request
+Class hcd.jsonmedidacorpos4sp.MedidaCorpo Extends Ens.Request
 {
 
 Property idx As %Integer;
@@ -9,8 +9,8 @@ Property valorIndicador As %String(MAXLEN = 300);
 
 Storage Default
 {
-<Data name="IndicadorFisicoDefaultData">
-<Subscript>"IndicadorFisico"</Subscript>
+<Data name="MedidaCorpoDefaultData">
+<Subscript>"MedidaCorpo"</Subscript>
 <Value name="1">
 <Value>idx</Value>
 </Value>
@@ -21,7 +21,7 @@ Storage Default
 <Value>valorIndicador</Value>
 </Value>
 </Data>
-<DefaultData>IndicadorFisicoDefaultData</DefaultData>
+<DefaultData>MedidaCorpoDefaultData</DefaultData>
 <Type>%Storage.Persistent</Type>
 }
 

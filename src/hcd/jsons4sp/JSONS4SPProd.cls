@@ -14,6 +14,10 @@ XData ProductionDefinition
     <Setting Target="Adapter" Name="FilePath">/opt/user/input/fisico/</Setting>
     <Setting Target="Adapter" Name="ArchivePath"></Setting>
   </Item>
+  <Item Name="JSONMedidaCorpoFileService" Category="" ClassName="hcd.jsonmedidacorpos4sp.JSONMedidaCorpoFileService" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Adapter" Name="FilePath">/opt/user/input/medidacorpo/</Setting>
+    <Setting Target="Adapter" Name="ArchivePath"></Setting>
+  </Item>
   <Item Name="HL7FilePacOperation" Category="" ClassName="EnsLib.HL7.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Adapter" Name="FilePath">/opt/user/output/paciente/</Setting>
   </Item>
@@ -54,6 +58,9 @@ XData ProductionDefinition
   </Item>
   <Item Name="MsgSDARouterFisico" Category="" ClassName="EnsLib.MsgRouter.RoutingEngine" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
     <Setting Target="Host" Name="BusinessRuleName">hcd.jsonfisicos4sp.JSONFisicoToSDARouter</Setting>
+  </Item>
+  <Item Name="MsgSDARouterMedidaCorpo" Category="" ClassName="EnsLib.MsgRouter.RoutingEngine" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
+    <Setting Target="Host" Name="BusinessRuleName">hcd.jsonmedidacorpos4sp.JSONMedidaCorpoToSDARouter</Setting>
   </Item>
   <Item Name="MsgSDARouterProc" Category="" ClassName="EnsLib.MsgRouter.RoutingEngine" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
     <Setting Target="Host" Name="BusinessRuleName">hcd.jsonprocs4sp.JSONProcToSDARouter</Setting>
@@ -129,6 +136,9 @@ XData ProductionDefinition
   </Item>
   <Item Name="SDAFileFamiliarOperation" Category="" ClassName="EnsLib.EDI.XML.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Adapter" Name="FilePath">/opt/user/output/familiar/</Setting>
+  </Item>
+  <Item Name="SDAFileMedidaCorpoOperation" Category="" ClassName="EnsLib.EDI.XML.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Adapter" Name="FilePath">/opt/user/output/medidacorpo/</Setting>
   </Item>
   <Item Name="SDAFilePacOperation" Category="" ClassName="EnsLib.EDI.XML.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Adapter" Name="FilePath">/opt/user/output/paciente/</Setting>

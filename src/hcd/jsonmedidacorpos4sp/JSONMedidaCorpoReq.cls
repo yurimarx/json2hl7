@@ -1,4 +1,4 @@
-Class hcd.jsonfisicos4sp.JSONFisicoReq Extends Ens.Request
+Class hcd.jsonmedidacorpos4sp.JSONMedidaCorpoReq Extends Ens.Request
 {
 
 // current date time
@@ -35,7 +35,7 @@ Property nomeReduzidoEstabelecimento As %String;
 
 // Indicadores físicos 
 
-Property indicadoresFisicos As list Of IndicadorFisico;
+Property medidasCorpo As list Of MedidaCorpo;
 
 // Data de inclusao 
 
@@ -51,8 +51,8 @@ Property dataAlteracao As %String;
 
 Storage Default
 {
-<Data name="JSONFisicoReqDefaultData">
-<Subscript>"JSONFisicoReq"</Subscript>
+<Data name="JSONMedidaCorpoReqDefaultData">
+<Subscript>"JSONMedidaCorpoReq"</Subscript>
 <Value name="1">
 <Value>currentDateTime</Value>
 </Value>
@@ -78,7 +78,7 @@ Storage Default
 <Value>nomeReduzidoEstabelecimento</Value>
 </Value>
 <Value name="9">
-<Value>indicadoresFisicos</Value>
+<Value>medidasCorpo</Value>
 </Value>
 <Value name="10">
 <Value>dataInclusao</Value>
@@ -90,7 +90,7 @@ Storage Default
 <Value>dataAlteracao</Value>
 </Value>
 </Data>
-<DefaultData>JSONFisicoReqDefaultData</DefaultData>
+<DefaultData>JSONMedidaCorpoReqDefaultData</DefaultData>
 <Type>%Storage.Persistent</Type>
 }
 
