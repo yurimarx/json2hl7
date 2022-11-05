@@ -148,9 +148,9 @@ Method OnProcessInput(pInput As %FileCharacterStream, pOutput As %RegisteredObje
             Set tSC = ..InsertItem(.idx, .req, "Nota do Nível de Dor", value.ammpNidoSq)
         }
 
-        Set req.dataInclusao = value.ammpDtInclusao 
-        Set req.dataLiberacao = value.ammpDtLiberacao  
-        Set req.dataAlteracao = value.ammpDtAlteracao  
+        Set req.dataInclusao = ##class(hcd.util.DateUtils).RemoveUTC(value.ammpDtInclusao) 
+        Set req.dataLiberacao = ##class(hcd.util.DateUtils).RemoveUTC(value.ammpDtLiberacao)  
+        Set req.dataAlteracao = ##class(hcd.util.DateUtils).RemoveUTC(value.ammpDtAlteracao)  
         
         Set tSc=..SendRequestAsync("MsgSDARouterMedidaCorpo",req)
         

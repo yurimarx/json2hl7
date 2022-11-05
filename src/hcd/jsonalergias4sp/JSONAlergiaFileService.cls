@@ -39,8 +39,8 @@ Method OnProcessInput(pInput As %FileCharacterStream, pOutput As %RegisteredObje
         Set req.siglaEstabelecimento = value.unfuSigla
 
         Set req.descricaoAlergia = value.alerDs
-        Set req.dataLiberacao = value.dtLiberacao
-        Set req.dataCancelado = value.dtCancelado
+        Set req.dataLiberacao = ##class(hcd.util.DateUtils).RemoveUTC(value.dtLiberacao)
+        Set req.dataCancelado = ##class(hcd.util.DateUtils).RemoveUTC(value.dtCancelado)
         
         Set tSc=..SendRequestAsync("MsgSDARouterAlergia",req)
         

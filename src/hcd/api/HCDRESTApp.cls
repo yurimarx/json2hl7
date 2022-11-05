@@ -101,14 +101,16 @@ ClassMethod QueryString() As %Status
 /// General information
 ClassMethod GetInfo() As %Status
 {
+  HANG 15
   SET version = ..#Version
   SET fmt=##class(%SYS.NLS.Format).%New("ptbw")
-  
+  SET processID = $JOB
   SET info = {
-    "Service": "TTS Service API",
+    "Service": "HCD API",
     "version": (version),
     "Developer": "Yuri Gomes",
     "Status": "Ok",
+    "ProcessID": (processID),
     "Date": ($ZDATETIME($HOROLOG))
   }
   Set %response.ContentType = ..#CONTENTTYPEJSON

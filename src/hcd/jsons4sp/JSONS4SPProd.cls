@@ -83,15 +83,9 @@ XData ProductionDefinition
   <Item Name="MsgSDARouterAlergia" Category="" ClassName="EnsLib.MsgRouter.RoutingEngine" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
     <Setting Target="Host" Name="BusinessRuleName">hcd.jsonalergias4sp.JSONAlergiaToSDARouter</Setting>
   </Item>
-  <Item Name="MsgSDARouterAgenda" Category="" ClassName="EnsLib.MsgRouter.RoutingEngine" PoolSize="1" Enabled="false" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
-    <Setting Target="Host" Name="BusinessRuleName">hcd.jsonagendas4sp.JSONAgendaToSDARouter</Setting>
-  </Item>
-  <Item Name="MsgSDARouterFamiliar" Category="" ClassName="EnsLib.MsgRouter.RoutingEngine" PoolSize="1" Enabled="false" Foreground="false" Comment="" LogTraceEvents="true" Schedule="">
-    <Setting Target="Host" Name="BusinessRuleName">hcd.jsonfamiliars4sp.JSONFamiliarToSDARouter</Setting>
-  </Item>  
   <Item Name="HL7FileDocOperation" Category="" ClassName="EnsLib.HL7.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Adapter" Name="FilePath">/opt/user/output/documento/</Setting>
-  </Item>  
+  </Item>
   <Item Name="HL7FileComOperation" Category="" ClassName="EnsLib.HL7.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Adapter" Name="FilePath">/opt/user/output/meiocomunicacao/</Setting>
   </Item>
@@ -114,10 +108,6 @@ XData ProductionDefinition
   <Item Name="JSONProcFileService" Category="" ClassName="hcd.jsonprocs4sp.JSONProcFileService" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Adapter" Name="ArchivePath"></Setting>
     <Setting Target="Adapter" Name="FilePath">/opt/user/input/procedimento/</Setting>
-  </Item>
-  <Item Name="JSONAgendaFileService" Category="" ClassName="hcd.jsonagendas4sp.JSONAgendaFileService" PoolSize="1" Enabled="false" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
-    <Setting Target="Adapter" Name="ArchivePath"></Setting>
-    <Setting Target="Adapter" Name="FilePath">/opt/user/input/agenda/</Setting>
   </Item>
   <Item Name="JSONAlergiaFileService" Category="" ClassName="hcd.jsonalergias4sp.JSONAlergiaFileService" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Adapter" Name="ArchivePath"></Setting>
@@ -152,15 +142,20 @@ XData ProductionDefinition
   <Item Name="SDAFileDocOperation" Category="" ClassName="EnsLib.EDI.XML.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
     <Setting Target="Adapter" Name="FilePath">/opt/user/output/documento/</Setting>
   </Item>
-  <Item Name="SDAFileAgendaOperation" Category="" ClassName="EnsLib.EDI.XML.Operation.FileOperation" PoolSize="1" Enabled="false" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
-    <Setting Target="Adapter" Name="FilePath">/opt/user/output/agenda/</Setting>
+  <Item Name="SDAVacividaFileOperation" Category="" ClassName="EnsLib.EDI.XML.Operation.FileOperation" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Adapter" Name="FilePath">/opt/user/output/trash/</Setting>
+    <Setting Target="Host" Name="Filename">%f_%Q</Setting>
   </Item>
-  <Item Name="SDAFileAlergiaOperation" Category="" ClassName="EnsLib.EDI.XML.Operation.FileOperation" PoolSize="1" Enabled="false" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
-    <Setting Target="Adapter" Name="FilePath">/opt/user/output/alergia/</Setting>
+  <Item Name="SQLVacividaToSDARouter" Category="" ClassName="EnsLib.MsgRouter.RoutingEngine" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Host" Name="BusinessRuleName">hcd.jsonvacivida.SQLVacividaToSDARouter</Setting>
   </Item>
-  <Item Name="SDAFileVacinaOperation" Category="" ClassName="EnsLib.EDI.XML.Operation.FileOperation" PoolSize="1" Enabled="false" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
-    <Setting Target="Adapter" Name="FilePath">/opt/user/output/vacina/</Setting>
-  </Item>
+  <Item Name="SQLVacividaService" Category="" ClassName="hcd.jsonvacivida.SQLVacividaService" PoolSize="1" Enabled="true" Foreground="false" Comment="" LogTraceEvents="false" Schedule="">
+    <Setting Target="Adapter" Name="DSN">User</Setting>
+    <Setting Target="Adapter" Name="Query">SELECT 
+ID, BairroLogradouro, CRMComorbidade, CdDoseAdicional, CnesEstabelecimento, CnsPaciente, CnsVacinador, CodeDataSus, ComplementoLogradouro, Cormobidades, DataAplicacao, DataAprazamento, DataAtualizacao, DataInvalido, DataNascimento, DataRegistro, Ddd, DddVacinador, DescricaoBPC, DescricaoMotivoDoseAdicional, DescricaoRegional, Dose, DoseAdicional, Estrategia, Etnia, FlGestante, FlPuerpera, FlagAtivo, FlagDoseAdicional, FlagInvalido, GrupoAtendimento, Gve, IdDose, IdEstrategia, IdImunobiologico, IdMotivoDoseAdicional, IdPaciente, IdPaisPrimeiraDose, IdPaisSegundaDose, IdRegional, IdUFPrimeiraDose, IdUFSegundaDose, IdVacinacao, Imunobiologico, Logradouro, Lote, Municipio, MunicipioEstabelecimento, NomeFantasiaEstabelecimento, NomeMae, NomePaciente, NomeVacinador, NumeroLogradouro, Raca, SendSDA, Sexo, Telefone, TelefoneVacinador, Uf, ValidadeLote
+FROM hcd_jsonvacivida.Vacivida WHERE SendSDA = 1</Setting>
+    <Setting Target="Adapter" Name="DeleteQuery">update hcd_jsonvacivida.Vacivida SET SendSDA = 0 where id = ?</Setting>
+  </Item> 
 </Production>
 }
 

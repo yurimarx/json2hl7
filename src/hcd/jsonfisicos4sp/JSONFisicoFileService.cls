@@ -120,9 +120,9 @@ Method OnProcessInput(pInput As %FileCharacterStream, pOutput As %RegisteredObje
             Set tSC = ..InsertItem(.idx, .req, "Outras informações cardio vasculares", value.amcvDsOutros)
         }
 
-        Set req.dataInclusao = value.amcvDtInclusao 
-        Set req.dataLiberacao = value.amcvDtLiberacao  
-        Set req.dataAlteracao = value.amcvDtAlteracao  
+        Set req.dataInclusao = ##class(hcd.util.DateUtils).RemoveUTC(value.amcvDtInclusao) 
+        Set req.dataLiberacao = ##class(hcd.util.DateUtils).RemoveUTC(value.amcvDtLiberacao)  
+        Set req.dataAlteracao = ##class(hcd.util.DateUtils).RemoveUTC(value.amcvDtAlteracao)  
         
         Set tSc=..SendRequestAsync("MsgSDARouterFisico",req)
         

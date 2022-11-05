@@ -47,10 +47,10 @@ Method OnProcessInput(pInput As %FileCharacterStream, pOutput As %RegisteredObje
         Set req.idadeParente = value.anfaNrIdade
         Set req.descricaoOutros = value.anfaDsOutros
         Set req.motivoRetiradaCancelamento = value.anfaTxMotivoRetirada
-        Set req.dataInclusao = value.anfaDtInclusao 
-        Set req.dataLiberacao = value.anfaDtLiberacao 
-        Set req.dataCancelado = value.anfaDtCancelado 
-        Set req.dataAlteracao = value.anfaDtAlteracao  
+        Set req.dataInclusao = ##class(hcd.util.DateUtils).RemoveUTC(value.anfaDtInclusao) 
+        Set req.dataLiberacao = ##class(hcd.util.DateUtils).RemoveUTC(value.anfaDtLiberacao) 
+        Set req.dataCancelado = ##class(hcd.util.DateUtils).RemoveUTC(value.anfaDtCancelado) 
+        Set req.dataAlteracao = ##class(hcd.util.DateUtils).RemoveUTC(value.anfaDtAlteracao)  
         
         Set tSc=..SendRequestAsync("MsgSDARouterFamiliar",req)
         
